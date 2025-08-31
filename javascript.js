@@ -44,50 +44,64 @@ let humanscore = 0 ;
 
 function rounds (compvalue , humanvalue){
     if (compvalue == "rock" && humanvalue== "scissors") {
-        compscore = compscore++
+        compscore = ++compscore
 
 
         return console.log("computer played rock you lost")
 
     }
     else if ( compvalue == "paper" &&  humanvalue == "rock" ){
-        compscore = compscore++
+        compscore = ++compscore
 
 
         return console.log ( "computer played paper you lost ")
     }
     else if (compvalue == "scissors" && humanvalue == "paper") { 
-        compscore = compscore++
+        compscore = ++compscore
 
         
         return console.log ( "computer played scissors you lost")
     }
     else if (compvalue == humanvalue){
-        compscore = compscore++
-        humanscore = humanscore++ 
+        compscore = ++compscore
+        humanscore = ++humanscore
         return console.log ( "Its a Draw ")
     }
     else {
-        humanscore = humanscore++
+        humanscore = ++humanscore
         return console.log ( "You won")
     }
 } 
 
 
 function winnerdeclration ( ) { 
-    if (compscore == 5 ){
-        return console.log (`computer reached ${compscore} first and won `)
 
-    }
-    else if (humanscore == 5) { 
-        return console.log (`You reached ${humanscore} first and Won`)
+        if (compscore == 5 ){
+            return console.log (`computer reached ${compscore} first and won `)
 
-    }
+        }
+        else if (humanscore == 5) { 
+            return console.log (`You reached ${humanscore} first and Won`)
+
+        }
+
+
+
 }
 
 function gamelauncher () { 
-    rounds ( getcomputerchoice() , gethumanchoice());
-    winnerdeclration()
+    for ( ; compscore < 5 || humanscore < 5  ; rounds()   ){
+        getcomputerchoice();
+        gethumanchoice();
+        rounds();
+        winnerdeclration();
+
+
+
+
+
+
+    }
 
 
 
