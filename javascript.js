@@ -8,6 +8,9 @@
 
 
 
+let compscore = 0 ;
+let humanscore = 0 ;
+
 
 
 function getcomputerchoice ( ){
@@ -35,43 +38,59 @@ function gethumanchoice  ( ) {
 
 
 
-let compscore = 0 ;
-let humanscore = 0 ;
 
 
 
 
 
 function rounds (compvalue , humanvalue){
-    
-    if (compvalue == "rock" && humanvalue== "scissors") {
-        compscore = ++compscore
 
+    if (compvalue == "rock" && humanvalue== "scissors") {
+        compscore = compscore++
 
         return console.log("computer played rock you lost")
 
     }
     else if ( compvalue == "paper" &&  humanvalue == "rock" ){
-        compscore = ++compscore
+        compscore = compscore++
 
 
         return console.log ( "computer played paper you lost ")
     }
     else if (compvalue == "scissors" && humanvalue == "paper") { 
-        compscore = ++compscore
+        compscore = compscore++
 
         
         return console.log ( "computer played scissors you lost")
     }
-    else if (compvalue == humanvalue){
-        compscore = ++compscore
-        humanscore = ++humanscore
-        return console.log ( "Its a Draw ")
+    else if (humanvalue == "rock" && compvalue== "scissors") {
+        humanscore = humanscore++
+
+
+        return console.log("computer played scissors you won")
+
     }
-    else {
-        humanscore = ++humanscore
-        return console.log ( "You won")
+    else if ( humanvalue == "paper" &&  compvalue == "rock" ){
+        humanscore = humanscore++
+
+
+        return console.log ( "computer played rock you won ")
     }
+    else if (humanvalue == "scissors" && compvalue == "paper") { 
+        humanscore = humanscore++
+
+        
+        return console.log ( "computer played paper you won")
+    }
+    else if (humanvalue == compvalue){
+        humanscore = humanscore++
+        compscore = compscore++
+        return console.log(`you both played ${compvalue}`)
+    }
+    
+
+
+
 } 
 
 
@@ -91,8 +110,7 @@ function winnerdeclration ( ) {
 }
 
 function gamelauncher () { 
-    for ( ; compscore < 5 || humanscore < 5  ; rounds()   ){
-        rounds(getcomputerchoice() , gethumanchoice());
+    for ( ; compscore < 5 || humanscore < 5  ; rounds(getcomputerchoice(),gethumanchoice())   ){
         winnerdeclration();
 
 
