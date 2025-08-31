@@ -43,6 +43,7 @@ let humanscore = 0 ;
 
 
 function rounds (compvalue , humanvalue){
+    
     if (compvalue == "rock" && humanvalue== "scissors") {
         compscore = ++compscore
 
@@ -91,9 +92,7 @@ function winnerdeclration ( ) {
 
 function gamelauncher () { 
     for ( ; compscore < 5 || humanscore < 5  ; rounds()   ){
-        getcomputerchoice();
-        gethumanchoice();
-        rounds();
+        rounds(getcomputerchoice() , gethumanchoice());
         winnerdeclration();
 
 
