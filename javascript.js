@@ -5,7 +5,8 @@
 // 5 make rounds 
 // i think it might have scope problems --> make a play function and call others in it 
 
-
+console.log("Rules : 1- each win is a +1 score ")
+console.log("2- draws add +1 to both sides ")
 
 
 let compscore = 0 ;
@@ -48,39 +49,39 @@ function rounds (compvalue , humanvalue){
     if (compvalue == "rock" && humanvalue== "scissors") {
         compscore = compscore + 1 
 
-        return console.log("computer played rock you lost")
+        return console.log( `computer played rock you lost you played ${humanvalue}`)
 
     }
     else if ( compvalue == "paper" &&  humanvalue == "rock" ){
         compscore = compscore + 1 
 
 
-        return console.log ( "computer played paper you lost ")
+        return console.log ( `computer played paper you lost you played ${humanvalue}`)
     }
     else if (compvalue == "scissors" && humanvalue == "paper") { 
         compscore = compscore + 1 
 
         
-        return console.log ( "computer played scissors you lost")
+        return console.log ( `computer played scissors you lost you played ${humanvalue}`)
     }
     else if (humanvalue == "rock" && compvalue== "scissors") {
         humanscore = humanscore + 1 
 
 
-        return console.log("computer played scissors you won")
+        return console.log(`computer played scissors you won you played ${humanvalue}`)
 
     }
     else if ( humanvalue == "paper" &&  compvalue == "rock" ){
         humanscore = humanscore + 1 
 
 
-        return console.log ( "computer played rock you won ")
+        return console.log ( `computer played rock you won you played ${humanvalue}`)
     }
     else if (humanvalue == "scissors" && compvalue == "paper") { 
         humanscore = humanscore + 1 
 
         
-        return console.log ( "computer played paper you won")
+        return console.log ( `computer played paper you won you played ${humanvalue}`)
     }
     else if (humanvalue == compvalue){
         humanscore = humanscore + 1 
