@@ -46,45 +46,45 @@ function gethumanchoice  ( ) {
 function rounds (compvalue , humanvalue){
 
     if (compvalue == "rock" && humanvalue== "scissors") {
-        compscore = compscore++
+        compscore = compscore + 1 
 
         return console.log("computer played rock you lost")
 
     }
     else if ( compvalue == "paper" &&  humanvalue == "rock" ){
-        compscore = compscore++
+        compscore = compscore + 1 
 
 
         return console.log ( "computer played paper you lost ")
     }
     else if (compvalue == "scissors" && humanvalue == "paper") { 
-        compscore = compscore++
+        compscore = compscore + 1 
 
         
         return console.log ( "computer played scissors you lost")
     }
     else if (humanvalue == "rock" && compvalue== "scissors") {
-        humanscore = humanscore++
+        humanscore = humanscore + 1 
 
 
         return console.log("computer played scissors you won")
 
     }
     else if ( humanvalue == "paper" &&  compvalue == "rock" ){
-        humanscore = humanscore++
+        humanscore = humanscore + 1 
 
 
         return console.log ( "computer played rock you won ")
     }
     else if (humanvalue == "scissors" && compvalue == "paper") { 
-        humanscore = humanscore++
+        humanscore = humanscore + 1 
 
         
         return console.log ( "computer played paper you won")
     }
     else if (humanvalue == compvalue){
-        humanscore = humanscore++
-        compscore = compscore++
+        humanscore = humanscore + 1 
+        compscore = compscore + 1
         return console.log(`you both played ${compvalue}`)
     }
     
