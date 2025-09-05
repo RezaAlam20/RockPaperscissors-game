@@ -1,128 +1,131 @@
-// 1 get input from computer 
-// 2 get input from human 
-// 3 compare inputs 
-// 4 declare winner 
-// 5 make rounds 
-// i think it might have scope problems --> make a play function and call others in it 
-
-console.log("Rules : 1- each win is a +1 score ")
-console.log("2- draws add +1 to both sides ")
 
 
 let compscore = 0 ;
 let humanscore = 0 ;
-
-
+let humanChoice;
+let compChoice; 
 
 function getcomputerchoice ( ){
     let compchoice = Math.random () * 100 
-    if ( compchoice >= 66 ) { 
-        return compchoice = "rock";
+    if ( compchoice >= 66 ) {  
+        return "rock"
 
     }
     else if ( compchoice <= 33 ) { 
-        return compchoice = "paper";
+
+        return "paper" 
+ 
+         
 
     }
     else { 
-        return compchoice = "scissors";
+
+        return "scissors"
     }
 }
 
-function gethumanchoice  ( ) {
-    let choice = prompt ( "enter your choice (rock /paper / scissors )" )
-    return choice.toLowerCase() ;
+function gethumanchoice  (e) {
+    if (e.target == rock){
+
+        return "rock"
+
+    }
+    else if (e.target == paper){ 
+
+
+        return "paper"
+
+
+    }
+    else if (e.target == scissors){
+
+        return "scissors"
+
+    }
     
-}
-
-
-
-
-
-
-
-
-
-
-function rounds (compvalue , humanvalue){
-
-    if (compvalue == "rock" && humanvalue== "scissors") {
-        compscore = compscore + 1 
-
-        return console.log( `computer played rock you lost you played ${humanvalue}`)
-
-    }
-    else if ( compvalue == "paper" &&  humanvalue == "rock" ){
-        compscore = compscore + 1 
-
-
-        return console.log ( `computer played paper you lost you played ${humanvalue}`)
-    }
-    else if (compvalue == "scissors" && humanvalue == "paper") { 
-        compscore = compscore + 1 
-
-        
-        return console.log ( `computer played scissors you lost you played ${humanvalue}`)
-    }
-    else if (humanvalue == "rock" && compvalue== "scissors") {
-        humanscore = humanscore + 1 
-
-
-        return console.log(`computer played scissors you won you played ${humanvalue}`)
-
-    }
-    else if ( humanvalue == "paper" &&  compvalue == "rock" ){
-        humanscore = humanscore + 1 
-
-
-        return console.log ( `computer played rock you won you played ${humanvalue}`)
-    }
-    else if (humanvalue == "scissors" && compvalue == "paper") { 
-        humanscore = humanscore + 1 
-
-        
-        return console.log ( `computer played paper you won you played ${humanvalue}`)
-    }
-    else if (humanvalue == compvalue){
-        humanscore = humanscore + 1 
-        compscore = compscore + 1
-        return console.log(`you both played ${compvalue}`)
-    }
+    
     
 
 
-
-} 
-
-
-function winnerdeclration ( ) { 
-
-        if (compscore == 5 ){
-            return console.log (`computer reached ${compscore} first and won `)
-
-        }
-        else if (humanscore == 5) { 
-            return console.log (`You reached ${humanscore} first and Won`)
-
-        }
-
-
-
+    
 }
 
-function gamelauncher () { 
-    for ( ; compscore < 5 || humanscore < 5  ; rounds(getcomputerchoice(),gethumanchoice())   ){
-        winnerdeclration();
+function rounds(compchoice , humanChoice){
+    if (compchoice == "rock" && humanChoice =="scissors"){
+        return compscore++ 
+    }
+    else if (compchoice == "paper" && humanChoice =="rock"){
+        return compscore++
 
+    }
+    else if (compchoice == "scissors" && humanChoice == "paper"){
+        return compscore++
+    }    
+    else if (humanChoice == "rock" && compchoice =="scissors"){
+        return humanscore++
+     }
+    else if (humanChoice == "paper" && compchoice == "rock"){
+        return humanscore++
 
-
-
-
-
+    }
+    else if (humanChoice == "scissors" && compchoice == "paper"){
+        return humanscore++
+    }
+    else if (compChoice == humanChoice ){
+        compChoice++
+        humanChoice++ 
+        return 
     }
 
 
 
+
+
 }
 
-gamelauncher();
+function gameLauncher(e){ 
+    humanChoice = gethumanchoice(e)
+
+    compChoice = getcomputerchoice()
+
+    rounds(compChoice , humanChoice)
+
+    declareWinner()
+
+
+}
+
+
+
+
+
+
+function declareWinner(){
+    if (humanscore == 5 && compscore != 5){ 
+
+        alert ("You win")
+        compscore = 0 
+        humanscore = 0
+        return 
+
+    }
+    else if (compscore == 5 && humanscore != 5 ){ 
+        alert("You Lost")
+        compscore = 0 
+        humanscore = 0 
+        return
+    }
+}
+
+
+let btn = document.querySelectorAll(".btn")
+let rock = document.querySelector("#rock")
+let paper = document.querySelector("#paper")
+let scissors = document. querySelector("#scissors")
+
+
+rock.addEventListener("click", gameLauncher)
+paper.addEventListener("click", gameLauncher)
+scissors.addEventListener("click", gameLauncher)
+btn.forEach(button => addEventListener("click",gameLauncher))
+ 
