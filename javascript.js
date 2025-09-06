@@ -1,14 +1,19 @@
 
 
-let compscore = 0 ;
-let humanscore = 0 ;
+let compScoreNum = document.querySelector(".compScoreNum")
+let YourScoreNum = document.querySelector(".YourScoreNum")
+let compscore = 0 
+let humanscore = 0 
+
 let humanChoice;
 let compChoice; 
 
 function getcomputerchoice ( ){
     let compchoice = Math.random () * 100 
     if ( compchoice >= 66 ) {  
+
         return "rock"
+        
 
     }
     else if ( compchoice <= 33 ) { 
@@ -72,8 +77,8 @@ function rounds(compchoice , humanChoice){
         return humanscore++
     }
     else if (compChoice == humanChoice ){
-        compChoice++
-        humanChoice++ 
+        compscore++
+        humanscore++
         return 
     }
 
@@ -89,12 +94,18 @@ function gameLauncher(e){
     compChoice = getcomputerchoice()
 
     rounds(compChoice , humanChoice)
+    scoreUpdater()
+
 
     declareWinner()
 
 
 }
 
+function scoreUpdater(){
+    YourScoreNum.textContent = humanscore
+    compScoreNum.textContent = compscore
+}
 
 
 
@@ -115,6 +126,12 @@ function declareWinner(){
         humanscore = 0 
         return
     }
+    else if (humanscore == 5 && compscore == 5 ){
+        alert("Draw")
+        compscore = 0 
+        humanscore = 0 
+        return 
+    }
 }
 
 
@@ -124,8 +141,4 @@ let paper = document.querySelector("#paper")
 let scissors = document. querySelector("#scissors")
 
 
-rock.addEventListener("click", gameLauncher)
-paper.addEventListener("click", gameLauncher)
-scissors.addEventListener("click", gameLauncher)
 btn.forEach(button => addEventListener("click",gameLauncher))
- 
