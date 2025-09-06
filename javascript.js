@@ -108,26 +108,26 @@ function scoreUpdater(){
 }
 
 
-
+let winner = document.querySelector(".winnnerDeclare")
 
 
 function declareWinner(){
     if (humanscore == 5 && compscore != 5){ 
 
-        alert ("You win")
+        winner.textContent = "You Win :) !"
         compscore = 0 
         humanscore = 0
         return 
 
     }
     else if (compscore == 5 && humanscore != 5 ){ 
-        alert("You Lost")
+        winner.textContent = "You Lose :(  !"
         compscore = 0 
         humanscore = 0 
         return
     }
     else if (humanscore == 5 && compscore == 5 ){
-        alert("Draw")
+        winner.textContent = "Its a Draw ! "
         compscore = 0 
         humanscore = 0 
         return 
