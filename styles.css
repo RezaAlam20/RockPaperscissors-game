@@ -5,7 +5,8 @@ html , body {
     display: flex;
     width: 100%;
     height: 100%;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
     align-items: center  ;
     background-color: #e0f7fa
 
@@ -20,6 +21,7 @@ html , body {
     justify-content: space-around ;
     border: solid 5px #004d40;
     border-radius: 50px;
+    flex-shrink: 1;
 
 
 
@@ -29,6 +31,8 @@ html , body {
     width: 100%;
     flex-direction: row;
     justify-content: space-around;
+    flex-shrink: 1;
+
 }
 
 
@@ -73,7 +77,8 @@ html , body {
     display:  flex;
     flex-direction: row ;
     width: 100%;
- 
+    flex-shrink: 1 ;
+
 
     justify-content: space-around ;
 
@@ -106,4 +111,8 @@ html , body {
     background-color: #4dd0e1;
     border: 2px solid #00acc1;
     color: black;
+}
+.winnnerDeclare { 
+    color: #004d40;
+    font-size: 90px;
 }
